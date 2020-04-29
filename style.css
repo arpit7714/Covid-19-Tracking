@@ -1,0 +1,68 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+*{
+  padding:0;
+  margin:0;
+}
+.global{
+    border: 1px solid black;
+    background-color:gray;
+    padding-left:30%;
+    padding-bottom:20px;
+    padding-top:20px;
+    background-image: url("https://dlg7f0e93aole.cloudfront.net/wp-content/uploads/global-map-of-coronavirus-image-750x500.jpg");
+  background-size:100%;
+  background-repeat:no-repeat;
+}
+.global div{
+  background-color:white;
+  margin:5px;
+  width:200px;
+  text-align:justify;
+  border-bottom:1px solid black;
+  opacity:0.6;
+}
+.global div:hover{
+  background-color:green;
+}
+tr td {
+  width : 50%;
+  border-bottom:1px solid gray;
+  text-align:justify;
+  overflow:auto;
+}
+
+tr th{
+  width :50%;
+}
+h1 {
+  background-color:Blue;
+  display:block;
+  text-align:center;
+}
+body{
+  background-color:gray;
+}
+.update_btn{
+  text-align:center;
+  margin-top:20px;
+}
+h3{
+  background-color:white;
+  width : 205px;
+  text-align:center;
+  opacity:0.6;
+}
+.fixed{
+  height:400px;
+  background-image:url("https://cdn140.picsart.com/322568668325201.gif?to=min&r=480");
+  overflow:auto;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+h1{
+  background-image:url("https://data.whicdn.com/images/268070875/original.gif");
+  background-size: 100%;
+  color:white;
+}
