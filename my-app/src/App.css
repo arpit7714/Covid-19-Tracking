@@ -1,0 +1,122 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+*{
+  padding:0;
+  margin:0;
+}
+/*.global{
+  background-image: url("https://dlg7f0e93aole.cloudfront.net/wp-content/uploads/global-map-of-coronavirus-image-750x500.jpg");
+  background-size:100%;
+  background-repeat:no-repeat;
+  text-align: center;
+  display: block;
+  padding-left: 25%;
+  border-radius: 1em;
+}*/
+
+
+h1 {
+  text-align:center;
+}
+body{
+  background-color:gray;
+}
+.update_btn{
+  text-align:center;
+  margin-top:20em;
+  color:green;
+}
+h3{
+  background-color:white;
+  width : 205px;
+  text-align:center;
+  opacity:0.6;
+}
+.fixed{
+  top:26em;
+  height: 400px;
+  overflow:auto;
+  background-color: white;
+  border-radius: 10px;
+  border:3px solid black;
+  position:absolute;
+  text-align: center;
+}
+table{
+  background-color: white;
+  width: 100%;
+  left:0px;
+  position: relative;
+}
+td{
+  border-bottom:1px solid gray;
+}
+tr{
+  
+  text-align:justify;
+
+}
+body{
+  background-color: white;
+}
+
+.btn_up{
+  margin-top:100px;
+  background-color: black;
+  border-radius: 5px;
+  padding: 3px 10px;
+  color: white;
+}
+.block_col{
+  background-color: blue;
+  padding:5%;
+  text-align: center;
+}
+.block_col div{
+  background-color:yellow;
+  margin-left:2%;
+  display: inline-block;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+.headline{
+  font-size: 60%;
+}
+.number{
+  font-size: 150%;
+  font-weight: 800;
+}
+
+body{
+   background-color:#95a8cf;
+}
+.country{
+  text-align: center;
+  margin-top: 2%;
+}
+.dropdown{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 1%;
+  border-radius: .5rem;
+}
+.dropdown:hover{
+  background-color: #494d4a;
+  color: white;
+}
+.graph{
+  background-color: red;
+  display: inline-block;
+}
+.headline_main{
+  color:red;
+  text-align: center;
+  margin-bottom: 1%;
+  border-radius: .2em;
+  margin-top: 0;
+  font-size: 450%;
+  font-weight: 800;
+
+}
