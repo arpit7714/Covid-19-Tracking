@@ -54,7 +54,7 @@ class Fetching extends React.Component{
       render(){
           return (
             <div>
-                {this.state.loading ? <div>loading....</div> : <div>...</div>}  
+                {this.state.loading ? <div>loading....</div> : <div></div>}  
             </div>
             
 
@@ -70,15 +70,10 @@ class App extends React.Component{
   		this.handling = this.handling.bind(this)
   	}
     handling (newdata){
-  	console.log(newdata);
-   this.setState({ 
-      data:newdata
-   });
+    this.setState({ 
+        data:newdata
+    });
 
-  console.log("test2");
-  console.log(this.state.data);
-  console.log("final statement");
-  
   }
   render(){
       return(

@@ -34,9 +34,10 @@ class Searchbar extends React.Component{
 		return(
 			<div>
 			   <div className = "country">
-				<select onChange={this.handleselect} value={this.state.val} className="dropdown">
-					{rows}
-				</select>
+			   		<div className="dropdown_heading">Select Country</div>
+					<select onChange={this.handleselect} value={this.state.val} className="dropdown">
+						{rows}
+					</select>
 				</div>
 				<Canvas test = {this.state.s_val}/>
 			</div>

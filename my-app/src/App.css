@@ -107,8 +107,12 @@ body{
   color: white;
 }
 .graph{
-  background-color: red;
-  display: inline-block;
+    text-align: center;                                       
+}
+.graph div{
+  width:50%;
+  margin-top: 2em;
+  padding-left: 20%;
 }
 .headline_main{
   color:red;
@@ -119,4 +123,15 @@ body{
   font-size: 450%;
   font-weight: 800;
 
+}
+.dropdown_heading{
+  font-weight: 700;
+
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .block_col div {
+    width: 100%;
+    margin-bottom: 3%;
+  }
 }

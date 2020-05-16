@@ -13,6 +13,7 @@ class Canvas extends Component {
     	 	if(this.props.test !== prev.test) {
 					const data = this.props.test;
 				    const len  = data.length;
+				    console.log(this.props.test);
 				    dataPoints = [];
 				    for (var i = 0; i < len; i++) {
 				    		let d = new Date(data[i].Date);
@@ -68,7 +69,6 @@ class Canvas extends Component {
 				type: "spline",
 				xValueFormatString: "DD-MMM",
 				yValueFormatString: "#,###",
-				showInLegend: true,
 				dataPoints: dataPoints
 			}]
 		}
@@ -87,7 +87,6 @@ class Canvas extends Component {
 				type: "spline",
 				xValueFormatString: "DD-MMM",
 				yValueFormatString: "#,###",
-				showInLegend: true,
 				dataPoints: dataPoints2
 			}]
 		}
