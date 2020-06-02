@@ -8,7 +8,7 @@ import Canvas from "./chart.js";
 class Searchbar extends React.Component{
 	state = {
    		s_val:[],
-   		val:null
+   		is_active : false
    	};
 	constructor(props){
 		super(props);
@@ -17,13 +17,22 @@ class Searchbar extends React.Component{
 	handleselect = async (e) => {
 		e.preventDefault();
 
+		if (!this.state.is_active){
+			this.setState({
+				is_active : true
+			})
+		}
+
 		const url = `https://api.covid19api.com/total/dayone/country/${e.target.value}`;
 		const response = await fetch(url);
 		const data = await response.json();  
 
+
 		this.setState({
 			s_val : data,
 		});
+
+
 	}
     render(){
 		var rows = [];
@@ -38,8 +47,8 @@ class Searchbar extends React.Component{
 					<select onChange={this.handleselect} value={this.state.val} className="dropdown">
 						{rows}
 					</select>
+					{this.state.is_active ? (<Canvas test={this.state.s_val} />) : '' }
 				</div>
-				<Canvas test = {this.state.s_val}/>
 			</div>
 		);
 	}

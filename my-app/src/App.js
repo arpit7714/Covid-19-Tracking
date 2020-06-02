@@ -34,7 +34,7 @@ var testData =
 const Global = (props) => {
   return (
     <div className = "global">
-    <Block param={props.update}/>
+    <Block param={props.update} />
     </div>
   ); 
 }
@@ -43,7 +43,7 @@ class Fetching extends React.Component{
   state = {
     loading : true
   };
-
+  
   async componentDidMount() {
     const response = await fetch("https://api.covid19api.com/summary");
     const data = await response.json();  
@@ -88,39 +88,5 @@ class App extends React.Component{
       );
   }
 }
-///function Total (props){
-//   var rows = [];
-//       const len  = props.test.Countries.length;
-//       console.log(len)
-//       console.log(len);
-//     for (var i = 0; i < len; i++) {
-//         rows.push(<List {...props.test.Countries[i]} />);
-//     }
-//   return (
-//     <div className="fixed">
-//     <table> 
-//       <tr>
-//               <th>Country</th>
-//               <th>Total Confirmed Cases</th>
-//               <th>Total Deaths</th>
-//       </tr>
-//       {rows}
-//     </table>  
-//    </div>
-//   );
-  
-// }
-// function List (props){
-//   console.log('console statement')
-//   return (
-//                       <tr>
-//                          <td style={{ width : '100',}}>{props.Country}</td>
-//                          <td style={{ width : '100'}}>{props.TotalConfirmed}</td>
-//                          <td style={{ width : '100'}}>{props.TotalDeaths}</td>
-//                       </tr>    
-//   );
-  
-// }
-
 export default App;
 
