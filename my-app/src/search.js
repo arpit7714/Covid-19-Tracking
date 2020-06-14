@@ -8,11 +8,18 @@ import Canvas from "./chart.js";
 class Searchbar extends React.Component{
 	state = {
    		s_val:[],
-   		is_active : false
+   		is_active : false,
    	};
 	constructor(props){
 		super(props);
 		this.handleselect=this.handleselect.bind(this);
+		this.getContent = this.getContent.bind(this);
+	}
+	getContent() {
+		if (this.state.s_val.length!=0){
+			const len  = this.state.s_val.length;
+			this.props.callback(this.state.s_val[len-1]);
+		}
 	}
 	handleselect = async (e) => {
 		e.preventDefault();
@@ -27,13 +34,13 @@ class Searchbar extends React.Component{
 		const response = await fetch(url);
 		const data = await response.json();  
 
-
 		this.setState({
 			s_val : data,
 		});
-
+		this.getContent();
 
 	}
+
     render(){
 		var rows = [];
 	    const len  = this.props.test.Countries.length;

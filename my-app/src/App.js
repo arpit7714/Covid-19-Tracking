@@ -34,7 +34,7 @@ var testData =
 const Global = (props) => {
   return (
     <div className = "global">
-    <Block param={props.update} />
+    <Block param={props.update} to_update = { props.fromchild}/>
     </div>
   ); 
 }
@@ -61,29 +61,38 @@ class Fetching extends React.Component{
             );
       }
   }
+
 class App extends React.Component{
     state = {
     	data : testData,
+      to_pass : [],
   	}
   	constructor(props){
   		super(props)
-  		this.handling = this.handling.bind(this)
+  		this.handling = this.handling.bind(this);
+      this.Fromsearch = this.Fromsearch.bind(this);
   	}
     handling (newdata){
-    this.setState({ 
-        data:newdata
-    });
+        this.setState({ 
+            data:newdata
+        });
+   }
 
-  }
+    Fromsearch(param){
+        this.setState({
+           to_pass : param
+      })
+    }
   render(){
+      console.log(this.state.to_pass);
       return(
         <div>
           <div className="main">
             <div className="headline_main">Covid-19</div>  
           </div>  
            <Fetching onsubmit = {this.handling}/>
-          <Global  update = {this.state.data.Global} />
-         <Searchbar test= {this.state.data}/>
+          <Global  update = {this.state.data.Global} fromchild = {this.state.to_pass}/>
+         <Searchbar test= {this.state.data} callback = {this.Fromsearch}/>
         </div>
       );
   }
