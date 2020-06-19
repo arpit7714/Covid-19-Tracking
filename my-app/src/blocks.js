@@ -102,71 +102,32 @@ class Block extends React.Component{
 	render(){
 		var rt = this.props.param;
 		var st = this.props.to_update;
-		return (
-						   <div>	
-						   	
-						   	{ this.props.to_update.length==0 ?
-												(
-												<div className="block_col">
-													<p className="block_text">{this.state.blocktext} Data</p>
-													<div>
-														<p className="headline">New Confirmed</p>
-														<p className="number">{this.AddCommas(rt.NewConfirmed)}	</p>
-													</div>
-													<div>
-														<p className="headline"> Total Confirmed</p>	
-														<p className="number">{this.AddCommas(rt.TotalConfirmed)}</p>
-													</div>
-													<div>
-														<p className="headline">New Deaths Confirmed</p>	
-														<p className="number">{this.AddCommas(rt.NewDeaths)}</p>
-													</div>
-													<div>
-														<p className="headline">Total Deaths </p>	
-														<p className="number">{this.AddCommas(rt.TotalDeaths)}</p>
-													</div>
-													<div>
-														<p className="headline">Total Recovered </p>	
-														<p className="number">{this.AddCommas(rt.TotalRecovered)}</p>
-													</div>
-												</div>
-												) : (
-						   							this.state.isToggleOn ? (
-						   							<div className="block_col">
-						   										<Form.Check
-												                    className="switch"
-												                    type="switch"
-												                    onChange={this.handlechange}
-           					  									/>
-																<p className="block_text">{this.state.blocktext} Data</p>
-																<div>
-																	<p className="headline">New Confirmed</p>
-																	<p className="number">{this.AddCommas(rt.NewConfirmed)}	</p>
-																</div>
-																<div>
-																	<p className="headline"> Total Confirmed</p>	
-																	<p className="number">{this.AddCommas(rt.TotalConfirmed)}</p>
-																</div>
-																<div>
-																	<p className="headline">New Deaths Confirmed</p>	
-																	<p className="number">{this.AddCommas(rt.NewDeaths)}</p>
-																</div>
-																<div>
-																	<p className="headline">Total Deaths </p>	
-																	<p className="number">{this.AddCommas(rt.TotalDeaths)}</p>
-																</div>
-																<div>
-																	<p className="headline">Total Recovered </p>	
-																	<p className="number">{this.AddCommas(rt.TotalRecovered)}</p>
-																</div>
-													</div> 
-												) : 
-													(<div className="block_col">	
-															<Form.Check
-												                    className="switch"
-												                    type="switch"
-												                    onChange={this.handlechange}
-           					  								/>
+		let element = 
+													<div className="block_col">
+															<p className="block_text">{this.state.blocktext} Data</p>
+															<div>
+																<p className="headline">New Confirmed</p>
+																<p className="number">{this.AddCommas(rt.NewConfirmed)}	</p>
+															</div>
+															<div>
+																<p className="headline"> Total Confirmed</p>	
+																<p className="number">{this.AddCommas(rt.TotalConfirmed)}</p>
+															</div>
+															<div>
+																<p className="headline">New Deaths Confirmed</p>	
+																<p className="number">{this.AddCommas(rt.NewDeaths)}</p>
+															</div>
+															<div>
+																<p className="headline">Total Deaths </p>	
+																<p className="number">{this.AddCommas(rt.TotalDeaths)}</p>
+															</div>
+															<div>
+																<p className="headline">Total Recovered </p>	
+																<p className="number">{this.AddCommas(rt.TotalRecovered)}</p>
+															</div>
+												     </div>;
+	    let element2 = 								
+	    												<div className="block_col">	
 															<p className="block_text">{st.Country} Data</p>
 															<div>
 																<p className="headline">Total Confirmed</p>
@@ -184,13 +145,24 @@ class Block extends React.Component{
 																<p className="headline">Total Recovered </p>	
 																<p className="number">{this.AddCommas(st.Recovered)}</p>
 															</div>
-												    </div>)
-												    
-											  )
-											}
+												    	</div>;
 
-				</div>
-			);
+		
+		return (
+						   <div className= "upper">	
+						   	{this.props.to_update.length==0 ? '' : <Form.Check
+																	        id="switch-1"
+																	        type="switch"
+																	        label=""
+																	        className = "field"
+																	        onChange={this.handlechange}
+																	      />}
+						   	{ this.props.to_update.length==0 ?
+												(element) : (this.state.isToggleOn ? 
+															(element) : 
+           					  								(element2)) }
+					      </div>
+			   );
 	}
 }
 
