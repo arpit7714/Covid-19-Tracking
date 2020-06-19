@@ -2,7 +2,8 @@ import React,{Component}  from 'react';
 import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import {useSpring, animated} from 'react-spring';
 import TabSwitcher, { Tab, TabPanel } from './tab';
-import Switch from 'react-input-switch';
+import Form from "react-bootstrap/Form";
+
 
 function Fade(){
   	
@@ -72,11 +73,21 @@ function Apptest() {
 class Block extends React.Component{
 	state = {
 		blocktext : "Global",
+		isToggleOn : false
 	}
 	constructor(props){
 		super(props);
 		this.AddCommas = this.AddCommas.bind(this);
+		this.handlechange = this.handlechange.bind(this);
+		
 	}
+	  handlechange(){
+	    console.log(this.state.isToggleOn)
+	    this.setState(function(prev){
+	    	return {isToggleOn : !prev.isToggleOn}
+	    })
+  	  }
+
 	AddCommas(nStr){
 		 nStr += '';
 		 var x = nStr.split('.');
@@ -92,54 +103,93 @@ class Block extends React.Component{
 		var rt = this.props.param;
 		var st = this.props.to_update;
 		return (
-				   	this.props.to_update.length==0 ? 
+						   <div>	
+						   	
+						   	{ this.props.to_update.length==0 ?
+												(
+												<div className="block_col">
+													<p className="block_text">{this.state.blocktext} Data</p>
+													<div>
+														<p className="headline">New Confirmed</p>
+														<p className="number">{this.AddCommas(rt.NewConfirmed)}	</p>
+													</div>
+													<div>
+														<p className="headline"> Total Confirmed</p>	
+														<p className="number">{this.AddCommas(rt.TotalConfirmed)}</p>
+													</div>
+													<div>
+														<p className="headline">New Deaths Confirmed</p>	
+														<p className="number">{this.AddCommas(rt.NewDeaths)}</p>
+													</div>
+													<div>
+														<p className="headline">Total Deaths </p>	
+														<p className="number">{this.AddCommas(rt.TotalDeaths)}</p>
+													</div>
+													<div>
+														<p className="headline">Total Recovered </p>	
+														<p className="number">{this.AddCommas(rt.TotalRecovered)}</p>
+													</div>
+												</div>
+												) : (
+						   							this.state.isToggleOn ? (
+						   							<div className="block_col">
+						   										<Form.Check
+												                    className="switch"
+												                    type="switch"
+												                    onChange={this.handlechange}
+           					  									/>
+																<p className="block_text">{this.state.blocktext} Data</p>
+																<div>
+																	<p className="headline">New Confirmed</p>
+																	<p className="number">{this.AddCommas(rt.NewConfirmed)}	</p>
+																</div>
+																<div>
+																	<p className="headline"> Total Confirmed</p>	
+																	<p className="number">{this.AddCommas(rt.TotalConfirmed)}</p>
+																</div>
+																<div>
+																	<p className="headline">New Deaths Confirmed</p>	
+																	<p className="number">{this.AddCommas(rt.NewDeaths)}</p>
+																</div>
+																<div>
+																	<p className="headline">Total Deaths </p>	
+																	<p className="number">{this.AddCommas(rt.TotalDeaths)}</p>
+																</div>
+																<div>
+																	<p className="headline">Total Recovered </p>	
+																	<p className="number">{this.AddCommas(rt.TotalRecovered)}</p>
+																</div>
+													</div> 
+												) : 
+													(<div className="block_col">	
+															<Form.Check
+												                    className="switch"
+												                    type="switch"
+												                    onChange={this.handlechange}
+           					  								/>
+															<p className="block_text">{st.Country} Data</p>
+															<div>
+																<p className="headline">Total Confirmed</p>
+																<p className="number">{this.AddCommas(st.Confirmed)}	</p>
+															</div>
+															<div>
+																<p className="headline">Active Cases</p>
+																<p className="number">{this.AddCommas(st.Active)}	</p>
+															</div>
+															<div>
+																<p className="headline">Total Deaths </p>	
+																<p className="number">{this.AddCommas(st.Deaths)}</p>
+															</div>
+															<div>
+																<p className="headline">Total Recovered </p>	
+																<p className="number">{this.AddCommas(st.Recovered)}</p>
+															</div>
+												    </div>)
+												    
+											  )
+											}
 
-						(
-						<div className="block_col">
-							<p className="block_text">{this.state.blocktext} Data</p>
-							<div>
-								<p className="headline">New Confirmed</p>
-								<p className="number">{this.AddCommas(rt.NewConfirmed)}	</p>
-							</div>
-							<div>
-								<p className="headline"> Total Confirmed</p>	
-								<p className="number">{this.AddCommas(rt.TotalConfirmed)}</p>
-							</div>
-							<div>
-								<p className="headline">New Deaths Confirmed</p>	
-								<p className="number">{this.AddCommas(rt.NewDeaths)}</p>
-							</div>
-							<div>
-								<p className="headline">Total Deaths </p>	
-								<p className="number">{this.AddCommas(rt.TotalDeaths)}</p>
-							</div>
-							<div>
-								<p className="headline">Total Recovered </p>	
-								<p className="number">{this.AddCommas(rt.TotalRecovered)}</p>
-							</div>
-						</div>
-						) : (
-							<div className="block_col">	
-							<p className="block_text">{st.Country} Data</p>
-							<div>
-								<p className="headline">Total Confirmed</p>
-								<p className="number">{this.AddCommas(st.Confirmed)}	</p>
-							</div>
-							<div>
-								<p className="headline">Active Cases</p>
-								<p className="number">{this.AddCommas(st.Active)}	</p>
-							</div>
-							<div>
-								<p className="headline">Total Deaths </p>	
-								<p className="number">{this.AddCommas(st.Deaths)}</p>
-							</div>
-							<div>
-								<p className="headline">Total Recovered </p>	
-								<p className="number">{this.AddCommas(st.Recovered)}</p>
-							</div>
-						</div>
-
-						)
+				</div>
 			);
 	}
 }

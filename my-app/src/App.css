@@ -138,3 +138,6 @@ body{
 .block_text{
   font-weight: 800;
 }
+.switch{
+   all: unset;
+}
