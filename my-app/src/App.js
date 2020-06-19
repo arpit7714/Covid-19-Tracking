@@ -4,6 +4,7 @@ import './App.css';
 import Searchbar from "./search.js";
 import Block from "./blocks.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Spinner from 'react-bootstrap/Spinner'
 
 
 
@@ -54,18 +55,14 @@ class Fetching extends React.Component{
     }
       render(){
           return (
-            <div>
-                {this.state.loading ? <div>loading....</div> : <div></div>}  
-            </div>
-            
-
+            <div></div>
             );
       }
   }
 
 class App extends React.Component{
     state = {
-    	data : testData,
+    	data : [],
       to_pass : [],
   	}
   	constructor(props){
@@ -92,8 +89,13 @@ class App extends React.Component{
             <div className="headline_main">Covid-19</div>  
           </div>  
            <Fetching onsubmit = {this.handling}/>
-          <Global  update = {this.state.data.Global} fromchild = {this.state.to_pass}/>
-         <Searchbar test= {this.state.data} callback = {this.Fromsearch}/>
+           {this.state.data.length==0 ? <div className = "spinner"><Spinner animation="border" role="status">
+                                            <span className="sr-only">Loading...</span>
+                                        </Spinner> </div>: 
+            <div>
+               <Global  update = {this.state.data.Global} fromchild = {this.state.to_pass}/>
+               <Searchbar test= {this.state.data} callback = {this.Fromsearch}/> 
+            </div>} 
         </div>
       );
   }
